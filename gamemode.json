@@ -8,6 +8,10 @@
     { "MapListId": 1, "Name": "MapList/AllMaps" }
   ],
   "ParametersDeclaration": [
-    { "Name": "GameLength", "Type": "String", "Default": "M" }
+    {
+      "Name": "GameLength",
+      "Type": "String",
+      "Default": "M"
+    }
   ]
 }
