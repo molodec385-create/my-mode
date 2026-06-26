@@ -1,0 +1,24 @@
+{
+  "Name": "TDM",
+  "Description": "Командный бой",
+  "StartClientVersion": 334,
+  "MapLists": [
+    { "MapListId": 324, "Name": "Официальные карты" }
+  ],
+  "Parameters": {
+    "Bool": [
+      {
+        "Name": "InfiniteAmmo",
+        "DisplayName": "GmParams/InfiniteAmmo",
+        "Default": true,
+        "Order": 1
+      },
+      {
+        "Name": "FriendlyFire",
+        "DisplayName": "GmParams/FriendlyFire",
+        "Default": false,
+        "Order": 2
+      }
+    ]
+  }
+}
