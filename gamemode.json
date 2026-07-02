@@ -1,0 +1,55 @@
+{
+  "ApiVersion": 2,
+  "Name": "mode.name",
+  "Description": "mode.description",
+  "DefaultLang": "en",
+  "PopupsEnabled": true,
+  "StartClientVersion": 703,
+  "MapFilter": {
+    "IsBlank": false,
+    "HasParcourEnd": false
+  },
+  "MapLists": [
+    {
+      "MapListId": 324,
+      "Name": "maplist.allmaps"
+    },
+    {
+      "MapListId": 24854,
+      "Name": "S",
+      "Parameters": { "GameLength": "S" }
+    },
+    {
+      "MapListId": 24855,
+      "Name": "M",
+      "Parameters": { "GameLength": "M" }
+    },
+    {
+      "MapListId": 24856,
+      "Name": "L",
+      "Parameters": { "GameLength": "L" }
+    },
+    {
+      "MapListId": 24857,
+      "Name": "XL",
+      "Parameters": { "GameLength": "XL" }
+    }
+  ],
+  "ParametersDeclaration": [
+    {
+      "Name": "GameLength",
+      "Type": "String",
+      "Default": "M"
+    }
+  ],
+  "Parameters": {
+    "Bool": [
+      {
+        "Name": "MapRotation",
+        "DisplayName": "params.MapRotation",
+        "Default": true,
+        "Order": 1
+      }
+    ]
+  }
+}
