@@ -22,7 +22,7 @@ const INMATE_TEAM_DISPLAY_NAME = "Teams/Inmates";
 const ZOMBIE_SPAWN_POINTS_GROUP = 1;
 const INMATE_SPAWN_POINTS_GROUP = 2;
 const ZOMBIE_TEAM_COLOR = { b: 1 };
-const INMATE_TEAM_COLOR = { r: 2 };
+const INMATE_TEAM_COLOR = { r: 1 };
 
 function create_team_zombies() {
 	Teams.Add(ZOMBIE_TEAM_NAME, ZOMBIE_TEAM_DISPLAY_NAME, ZOMBIE_TEAM_COLOR);
