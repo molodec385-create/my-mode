@@ -5,6 +5,8 @@
   "maplist.allmaps": "Все карты",
 
   "params.MapRotation": "Ротация карт",
+  "params.FastMatch": "Быстрый матч (2 мин, у зомби 150 хп)",
+  "params.SuperLongMatch": "Супер долгий матч (10 мин, у заключённых 1000 хп)",
 
   "Teams/Zombies": "Зомби",
   "Teams/Inmates": "Заключённые",
