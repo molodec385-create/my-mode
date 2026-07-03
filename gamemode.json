@@ -49,6 +49,18 @@
         "DisplayName": "params.MapRotation",
         "Default": true,
         "Order": 1
+      },
+      {
+        "Name": "FastMatch",
+        "DisplayName": "params.FastMatch",
+        "Default": false,
+        "Order": 2
+      },
+      {
+        "Name": "SuperLongMatch",
+        "DisplayName": "params.SuperLongMatch",
+        "Default": false,
+        "Order": 3
       }
     ]
   }
