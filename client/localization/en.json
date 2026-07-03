@@ -5,6 +5,8 @@
   "maplist.allmaps": "All Maps",
 
   "params.MapRotation": "Map rotation",
+  "params.FastMatch": "Fast match (2 min, zombies have 150 HP)",
+  "params.SuperLongMatch": "Super long match (10 min, inmates have 1000 HP)",
 
   "Teams/Zombies": "Zombies",
   "Teams/Inmates": "Inmates",
