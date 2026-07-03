@@ -44,8 +44,8 @@ const EndOfMatchTime = 8;
 const VoteTime = 10;
 
 // ===== Очки =====
-const WINNER_SCORES = 30;
-const LOSER_SCORES = 15;
+const WINNER_SCORES = 3000;
+const LOSER_SCORES = 1500;
 const KILLS_PROP_NAME = "Kills";
 const SCORES_PROP_NAME = "Scores";
 
