@@ -74,9 +74,6 @@ const zombieTeam = create_team_zombies();
 const inmateTeam = create_team_inmates();
 inmateTeam.Build.BlocksSet.Value = BuildBlocksSet.Red;
 
-// принудительный скин зомби для команды зомби (ID=1 подтверждён на практике)
-zombieTeam.ContextedProperties.SkinType.Value = 1;
-
 // отображаем изначально нули в очках команд
 zombieTeam.Properties.Get(SCORES_PROP_NAME).Value = 0;
 inmateTeam.Properties.Get(SCORES_PROP_NAME).Value = 0;
