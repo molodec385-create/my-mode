@@ -1,4 +1,4 @@
-import { DisplayValueHeader, Color } from 'pixel_combats/basic';
+import { DisplayValueHeader } from 'pixel_combats/basic';
 import * as room_lib from 'pixel_combats/room';
 const { room, Game, Players, Inventory, LeaderBoard, BuildBlocksSet, Teams, Damage, BreackGraph, Ui, Properties, GameMode, Spawns, Timers, TeamsBalancer, NewGame, NewGameVote } = room_lib;
 import * as vote_types from 'pixel_combats/types/new_game_vote';
@@ -21,8 +21,8 @@ const ZOMBIE_TEAM_DISPLAY_NAME = "Teams/Zombies";
 const INMATE_TEAM_DISPLAY_NAME = "Teams/Inmates";
 const ZOMBIE_SPAWN_POINTS_GROUP = 1;
 const INMATE_SPAWN_POINTS_GROUP = 2;
-const ZOMBIE_TEAM_COLOR = new Color(0, 1, 0, 0); // зелёный
-const INMATE_TEAM_COLOR = new Color(1, 0.5, 0, 0); // оранжевый
+const ZOMBIE_TEAM_COLOR = { b: 1 };
+const INMATE_TEAM_COLOR = { r: 1 };
 
 function create_team_zombies() {
 	Teams.Add(ZOMBIE_TEAM_NAME, ZOMBIE_TEAM_DISPLAY_NAME, ZOMBIE_TEAM_COLOR);
@@ -72,7 +72,10 @@ Ui.GetContext().MainTimerId.Value = mainTimer.Id;
 
 const zombieTeam = create_team_zombies();
 const inmateTeam = create_team_inmates();
-inmateTeam.Build.BlocksSet.Value = BuildBlocksSet.Blue;
+inmateTeam.Build.BlocksSet.Value = BuildBlocksSet.Red;
+
+// принудительный скин зомби для команды зомби (ID=1 подтверждён на практике)
+zombieTeam.ContextedProperties.SkinType.Value = 1;
 
 // отображаем изначально нули в очках команд
 zombieTeam.Properties.Get(SCORES_PROP_NAME).Value = 0;
