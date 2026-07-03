@@ -46,6 +46,8 @@ const VoteTime = 10;
 // ===== Очки =====
 const WINNER_SCORES = 3000;
 const LOSER_SCORES = 1500;
+const INFECT_SCORES = 500;      // зомби заражает заключённого
+const KILL_ZOMBIE_SCORES = 2000; // заключённый убивает зомби (тяжело!)
 const KILLS_PROP_NAME = "Kills";
 const SCORES_PROP_NAME = "Scores";
 
@@ -72,6 +74,10 @@ const zombieTeam = create_team_zombies();
 const inmateTeam = create_team_inmates();
 inmateTeam.Build.BlocksSet.Value = BuildBlocksSet.Blue;
 
+// отображаем изначально нули в очках команд
+zombieTeam.Properties.Get(SCORES_PROP_NAME).Value = 0;
+inmateTeam.Properties.Get(SCORES_PROP_NAME).Value = 0;
+
 // лидерборд
 LeaderBoard.PlayerLeaderBoardValues = [
 	new DisplayValueHeader(KILLS_PROP_NAME, "Statistics/Kills", "Statistics/KillsShort"),
@@ -80,6 +86,10 @@ LeaderBoard.PlayerLeaderBoardValues = [
 ];
 LeaderBoard.PlayersWeightGetter.Set(function (player) {
 	return player.Properties.Get(SCORES_PROP_NAME).Value;
+});
+LeaderBoard.TeamLeaderBoardValue = new DisplayValueHeader(SCORES_PROP_NAME, "Statistics/Scores", "Statistics/ScoresShort");
+LeaderBoard.TeamWeightGetter.Set(function (team) {
+	return team.Properties.Get(SCORES_PROP_NAME).Value;
 });
 
 // все новые игроки по умолчанию идут к заключённым
@@ -107,21 +117,30 @@ Damage.OnDeath.Add(function (player) {
 	++player.Properties.Deaths.Value;
 });
 
-// смерть от зомби: если заключённого убил зомби — превращаем его в зомби
 // Damage.OnKill(killer, killed) — задокументированное событие (damage.md)
 Damage.OnKill.Add(function (killer, killed) {
 	if (stateProp.Value !== GameStateValue) return;
 	if (!killer || !killed) return;
 
+	// зомби заражает заключённого
 	if (killer.Team === zombieTeam && killed.Team === inmateTeam) {
 		++killer.Properties.Kills.Value;
-		killer.Properties.Scores.Value += 500;
+		killer.Properties.Scores.Value += INFECT_SCORES;
+		zombieTeam.Properties.Get(SCORES_PROP_NAME).Value += INFECT_SCORES;
 
 		// превращаем жертву в зомби и респавним
 		zombieTeam.Add(killed);
 		killed.Spawns.Spawn();
 
 		CheckForWin();
+		return;
+	}
+
+	// заключённый убивает зомби — зомби живучие, награда большая
+	if (killer.Team === inmateTeam && killed.Team === zombieTeam) {
+		++killer.Properties.Kills.Value;
+		killer.Properties.Scores.Value += KILL_ZOMBIE_SCORES;
+		inmateTeam.Properties.Get(SCORES_PROP_NAME).Value += KILL_ZOMBIE_SCORES;
 	}
 });
 
@@ -201,8 +220,21 @@ function SetGameMode() {
 	Spawns.GetContext(inmateTeam).Spawn();
 	Spawns.GetContext(zombieTeam).Spawn();
 
+	// длительность матча + спец-режимы HP
 	const gameLength = GameMode.Parameters.GetString('GameLength');
-	const gameTime = GAME_MODE_TIMES[gameLength] || GAME_MODE_TIMES['M'];
+	const isFastMatch = GameMode.Parameters.GetBool('FastMatch');
+	const isSuperLongMatch = GameMode.Parameters.GetBool('SuperLongMatch');
+
+	let gameTime;
+	if (isFastMatch) {
+		gameTime = 120; // супер короткий матч — 2 минуты
+		zombieTeam.ContextedProperties.MaxHp.Value = 150; // зомби слабее
+	} else if (isSuperLongMatch) {
+		gameTime = 600; // супер долгий матч — 10 минут
+		inmateTeam.ContextedProperties.MaxHp.Value = 1000; // заключённые живучее
+	} else {
+		gameTime = GAME_MODE_TIMES[gameLength] || GAME_MODE_TIMES['M'];
+	}
 	mainTimer.Restart(gameTime);
 }
 
@@ -219,6 +251,8 @@ function SetEndOfMatch(winners, loosers) {
 
 	for (const p of winners.Players) p.Properties.Scores.Value += WINNER_SCORES;
 	for (const p of loosers.Players) p.Properties.Scores.Value += LOSER_SCORES;
+	winners.Properties.Get(SCORES_PROP_NAME).Value += WINNER_SCORES * winners.Players.length;
+	loosers.Properties.Get(SCORES_PROP_NAME).Value += LOSER_SCORES * loosers.Players.length;
 
 	var spawns = Spawns.GetContext();
 	spawns.enable = false;
