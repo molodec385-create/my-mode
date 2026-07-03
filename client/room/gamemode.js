@@ -115,7 +115,7 @@ Damage.OnKill.Add(function (killer, killed) {
 
 	if (killer.Team === zombieTeam && killed.Team === inmateTeam) {
 		++killer.Properties.Kills.Value;
-		killer.Properties.Scores.Value += 50;
+		killer.Properties.Scores.Value += 500;
 
 		// превращаем жертву в зомби и респавним
 		zombieTeam.Add(killed);
