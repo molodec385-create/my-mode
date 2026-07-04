@@ -9,31 +9,50 @@
     "HasParcourEnd": false
   },
   "MapLists": [
-    { "MapListId": 324, "Name": "maplist.allmaps" }
+    {
+      "MapListId": 324,
+      "Name": "maplist.allmaps"
+    }
   ],
   "ParametersDeclaration": [
-    { "Name": "GameLength", "Type": "String", "Default": "M" }
+    {
+      "Name": "GameLength",
+      "Type": "String",
+      "Default": "M"
+    }
   ],
   "Parameters": {
     "Bool": [
-      { "Name": "EnableTDM", "DisplayName": "⚔️ Включить логику TDM (Командный бой)", "Default": true, "Order": 1 },
-      { "Name": "EnablePeace", "DisplayName": "🕊️ Включить логику Peace (Мирный режим/Бессмертие)", "Default": false, "Order": 2 },
-      { "Name": "EnableEditor", "DisplayName": "🏗️ Включить логику Editor (Режим Создателя)", "Default": false, "Order": 3 },
-      { "Name": "MapRotation", "DisplayName": "⚙️ Ротация карт после матча", "Default": true, "Order": 4 },
-      { "Name": "LoosenBlocks", "DisplayName": "🧱 Физика блоков (Ослабление TDM)", "Default": true, "Order": 5 },
-      { "Name": "FriendlyFire", "DisplayName": "💥 Friendly Fire (Огонь по своим)", "Default": false, "Order": 6 },
-      { "Name": "InfAmmo", "DisplayName": "🎒 Бесконечные патроны у всех", "Default": true, "Order": 7 },
-      { "Name": "InfBlocks", "DisplayName": "📦 Бесконечные блоки у всех", "Default": true, "Order": 8 },
-      { "Name": "FallDamage", "DisplayName": "💔 Урон от падения", "Default": true, "Order": 9 }
-    ],
-    "Int": [
-      { "Name": "BaseHP", "DisplayName": "❤️ Базовое здоровье игроков (ХП)", "Default": 100, "Min": 1, "Max": 10000, "Order": 10 },
-      { "Name": "BuildSpeed", "DisplayName": "⚡ Скорость строительства (x)", "Default": 2, "Min": 1, "Max": 10, "Order": 11 },
-      { "Name": "RespawnDelay", "DisplayName": "⏳ Время возрождения (сек)", "Default": 3, "Min": 0, "Max": 20, "Order": 12 }
-    ],
-    "Float": [
-      { "Name": "CustomGravity", "DisplayName": "🌌 Гравитация (1.0 - норма, 0.4 - космос)", "Default": 1.0, "Min": 0.1, "Max": 2.5, "Order": 13 },
-      { "Name": "SpeedMultiplier", "DisplayName": "🏃 Множитель скорости бега", "Default": 1.0, "Min": 0.5, "Max": 3.0, "Order": 14 }
+      {
+        "Name": "EnableTDM",
+        "DisplayName": "params.EnableTDM",
+        "Default": true,
+        "Order": 1
+      },
+      {
+        "Name": "EnablePeace",
+        "DisplayName": "params.EnablePeace",
+        "Default": false,
+        "Order": 2
+      },
+      {
+        "Name": "EnableEditor",
+        "DisplayName": "params.EnableEditor",
+        "Default": false,
+        "Order": 3
+      },
+      {
+        "Name": "MapRotation",
+        "DisplayName": "params.MapRotation",
+        "Default": true,
+        "Order": 4
+      },
+      {
+        "Name": "LoosenBlocks",
+        "DisplayName": "params.LoosenBlocks",
+        "Default": true,
+        "Order": 5
+      }
     ]
   }
 }
