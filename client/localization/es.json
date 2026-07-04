@@ -1,0 +1,15 @@
+{
+  "mode.name": "Arenero Amalgama",
+  "mode.description": "¡El híbrido definitivo: TDM, Paz y Editor en una sola sala mediante configuraciones!",
+  "maplist.allmaps": "Todos los mapas",
+  
+  "params.EnableTDM": "⚔️ Activar lógica TDM",
+  "params.EnablePeace": "🕊️ Activar modo Paz (Inmortalidad)",
+  "params.EnableEditor": "🏗️ Activar herramientas de Editor",
+  "params.MapRotation": "⚙️ Rotación de mapas",
+  "params.LoosenBlocks": "🧱 Bloques debilitados (Física)",
+  
+  "hint.waiting": "Esperando la sincronización de la Amalgama...",
+  "hint.battle": "¡Partida iniciada! Configuración aplicada.",
+  "hint.end": "¡Ronda terminada!"
+}
