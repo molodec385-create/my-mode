@@ -1,0 +1,37 @@
+{
+  "ApiVersion": 2,
+  "Name": "mode.name",
+  "Description": "mode.description",
+  "DefaultLang": "ru",
+  "StartClientVersion": 703,
+  "PopupsEnabled": true,
+  "MapLists": [
+    {
+      "MapListId": 324,
+      "Name": "maplist.allmaps"
+    }
+  ],
+  "Parameters": {
+    "Bool": [
+      {
+        "Name": "FriendlyFire",
+        "DisplayName": "params.FriendlyFire",
+        "Default": false,
+        "Order": 1
+      }
+    ],
+    "Dropdown": [
+      {
+        "Name": "MatchDuration",
+        "DisplayName": "params.MatchDuration",
+        "Default": "3",
+        "Order": 2,
+        "Variants": [
+          { "Name": "2", "DisplayName": "params.Duration_2" },
+          { "Name": "3", "DisplayName": "params.Duration_3" },
+          { "Name": "5", "DisplayName": "params.Duration_5" }
+        ]
+      }
+    ]
+  }
+}
