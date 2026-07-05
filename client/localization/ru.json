@@ -1,0 +1,29 @@
+{
+  "mode.name": "Постапокалипсис",
+  "mode.description": "Красные против Синих в мире, где смерть не окончательна — павшие восстают зомби и охотятся на всех. Последний боец команды получает второй шанс.",
+
+  "maplist.allmaps": "Все карты",
+
+  "params.FriendlyFire": "Огонь по своим",
+  "params.MatchDuration": "Длительность матча",
+  "params.Duration_2": "2 минуты",
+  "params.Duration_3": "3 минуты",
+  "params.Duration_5": "5 минут",
+
+  "Teams/Red": "Красные",
+  "Teams/Blue": "Синие",
+  "Teams/Zombies": "Зомби",
+
+  "Hint/WaitingForPlayers": "Ожидание игроков",
+  "Hint/Survive": "Выживите или обратитесь",
+  "Hint/LastStand": "Последний шанс! 15 секунд неуязвимости",
+  "Hint/AllInfected": "Все заражены. Раунд завершён",
+  "Hint/EndOfMatch": "Конец матча",
+
+  "Statistics/Kills": "Убийства",
+  "Statistics/KillsShort": "K",
+  "Statistics/Deaths": "Смерти",
+  "Statistics/DeathsShort": "D",
+  "Statistics/Scores": "Очки",
+  "Statistics/ScoresShort": "P"
+}
