@@ -1,0 +1,23 @@
+{
+  "ApiVersion": 2,
+  "Name": "Last Survivor",
+  "Description": "Одна жизнь на раунд. Респавна нет. Побеждает последний выживший.",
+  "DefaultLang": "en",
+  "PopupsEnabled": false,
+  "StartClientVersion": 1,
+  "Parameters": {
+    "Dropdown": [
+      {
+        "Name": "round_time",
+        "DisplayName": "GmParams/RoundTime",
+        "Default": "300",
+        "Order": 1,
+        "Variants": [
+          { "Name": "180", "DisplayName": "3 min" },
+          { "Name": "300", "DisplayName": "5 min" },
+          { "Name": "600", "DisplayName": "10 min" }
+        ]
+      }
+    ]
+  }
+}
